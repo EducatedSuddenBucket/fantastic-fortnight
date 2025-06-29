@@ -1,7 +1,7 @@
 import express from "express";
-import fs from "fs";
-import http from "http";
-import net from "net";
+import fs from "node:fs";
+import http from "node:http";
+import net from "node:net";
 
 const app = express();
 
