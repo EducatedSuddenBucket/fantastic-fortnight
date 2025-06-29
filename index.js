@@ -1,8 +1,7 @@
 import express from "express";
-import fs from "node:fs";
-import http from "node:http";
-import WebSocket from "ws";
-import net from "node:net";
+import fs from "fs";
+import http from "http";
+import net from "net";
 
 const app = express();
 
@@ -13,15 +12,6 @@ let counter = 0;
 setInterval(() => {
   console.log(`[Interval] Counter: ${++counter}`);
 }, 5000);
-
-// WebSocket test
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
-
-wss.on("connection", (ws) => {
-  console.log("WebSocket connected");
-  ws.send("Hello from WebSocket!");
-});
 
 // File persistence test
 app.get("/write", (req, res) => {
@@ -49,7 +39,8 @@ app.get("/", (req, res) => {
   res.send(`Hello! Counter is ${counter}`);
 });
 
-// Main app listen
+// Main app listen (no WebSocket server now)
+const server = http.createServer(app);
 server.listen(3000, () => {
-  console.log("HTTP + WebSocket server listening on port 3000");
+  console.log("HTTP server listening on port 3000");
 });
