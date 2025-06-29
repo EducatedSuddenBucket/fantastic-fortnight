@@ -1,0 +1,14 @@
+{
+  "name": "express-serverless-detector",
+  "version": "1.0.0",
+  "description": "Express server using features incompatible with serverless hosting.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.15.1"
+  }
+}
